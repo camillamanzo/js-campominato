@@ -32,41 +32,39 @@
 let bombs = [];
 let playedNumbers = [];
 
-function randomNumber (num1, num2) {
-    return Math.floor(Math.random() * (num1 - num2 + 1) + num2);
+function randomNumber (min, max) {
+    return Math.floor(Math.random() * (min - max + 1) + max);
     }
 
 // Creating 16 random numbers.
-for(i = 0; i < 16; i++){
+while(bombs.length < 16){
+
     let singleBomb = randomNumber (1, 100); 
+    
+    if (!bombs.includes(singleBomb) ){
     bombs.push (singleBomb);
-    // console.log(bombe[i]);
+    }
+    // console.log(bombs);
 }
 
 // Asking the user n times the numbers he wants to play. 
 for (i = 0; i < (100 - 95); i++){
 
-    let userNumber = parseInt( prompt("Insert a number from 1 to 100. Different each time") );
+    let userNumber = parseInt( prompt("Insert a number from 1 to 100.") );
 
-    switch (userNumber) {
-
-        case (userNumber === playedNumbers[i]):
-            alert ("Too easy... Please insert a different number each time.");
-            break;
-        case (isNaN.userNumber):
-            alert ("You can ONLY insert numbers!");
-            break;
-        case (userNumber === bombs[i]):
-            alert ("YOU LOST. Press cmd + R to restart.");
-            break;
-        case (bombs != playedNumbers):
-            alert ("WELL DONE! You just beat the computer! Press cmd + R to restart.");
-            break;
-        default:
-            playedNumbers.push (userNumber);
+    if (playedNumbers.includes(userNumber) ){
+        userNumber = parseInt( prompt("Too easy this way... Please insert a different number each time.") );
+    } else if (bombs.includes(userNumber)){
+        alert ("You lost!")
     }
-    console.log(playedNumbers[i]);
+    else if (isNaN(userNumber)){
+        userNumber = parseInt( prompt("You can ONLY insert numbers!") );
+    }else{
+        playedNumbers.push (userNumber);
+    }
+    console.log(playedNumbers);
 }
+
 
 
 
