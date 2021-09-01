@@ -10,24 +10,6 @@
  *  l’utente ha inserito un numero consentito.
  */
 
-    //  # PREPARATION
-    //  1 - Creiamo un bell'array all'interno del quale inserire (poi) le bombe
-    //  2 - Genero un numero randomico e lo inserisco all'interno dell'array di cui sopra ^, FINCHE' non arrivo a 16
-    //  3 - Crea un array per ricordare i numeri (scelti) dall'utente
-    // **** Creo una variable di appoggio per il punteggio
-
-    // # GAMEPLAY
-    // 1) Chiedere un numero all'utente
-    // 2) Controllare che il numero non sia presente nell'array di bombe !!! ALTRIMENTI KABOOM
-    // 3) Controllo se per caso lo aveva già scelto (è già presente nell'array dei numeri scelti dall'utente)
-    // 4) Se il numero non è esplosivo e non è stato scelto, lo aggiungo nell'array dei numeri scelti
-    //  
-
-    // # ENDGAME
-    // a. Stampiamo il messaggio di alert del gioco (se hai vinto o perso)
-    // b. Stampiamo il punteggio del giocatore
-
-
 
 let bombs = [];
 let playedNumbers = [];
@@ -48,39 +30,27 @@ while(bombs.length < 16){
 }
 
 // Asking the user n times the numbers he wants to play. 
-for (i = 0; i < (100 - 95); i++){
+while(playedNumbers.length < (100 - 15)) {
 
     let userNumber = parseInt( prompt("Insert a number from 1 to 100.") );
 
-    if (playedNumbers.includes(userNumber) ){
+    if (playedNumbers.length == (100 - 16) ) {
+        alert ("You won! Press cmd + r to restart the game.");
+        break;
+    } else if (playedNumbers.includes(userNumber) ){
         userNumber = parseInt( prompt("Too easy this way... Please insert a different number each time.") );
-    } else if (bombs.includes(userNumber)){
-        alert ("You lost!")
-    }
-    else if (isNaN(userNumber)){
+    } else if (isNaN(userNumber)){
         userNumber = parseInt( prompt("You can ONLY insert numbers!") );
-    }else{
+    } else if (!userNumber > 0 && !userNumber < 100){
+        userNumber = parseInt( prompt("You can ONLY insert a number from 1 to 100!") );
+    }  else if ( (!bombs.includes(userNumber) ) && 
+                (!playedNumbers.includes(userNumber) ) && 
+                (!isNaN(userNumber) ) && 
+                (userNumber > 0 && userNumber < 100)){
         playedNumbers.push (userNumber);
+    } else if (bombs.includes(userNumber)){
+        alert ("You lost! Press cmd + r to restart the game.");
+        break;
     }
     console.log(playedNumbers);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
