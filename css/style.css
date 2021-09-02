@@ -1,0 +1,56 @@
+body{
+    height: 100vh;
+    background-image: url(../img/grass.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-width: 976px;
+}
+
+header{
+    padding-top: 50px;
+    color: red;
+    font-family: 'Keania One';
+    text-shadow: -5px 0 black, 0 5px black, 5px 0 black, 0 -5px black;
+}
+
+button{
+    width: 70%;
+    height: 80px;
+    margin-top: 150px;
+    background-color: red;
+    border: 5px solid black;
+    font-size: xx-large;
+}
+
+#easy-btn{
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 1.8em;
+}
+
+#normal-btn{
+    font-family: 'Oswald', sans-serif;
+    font-size: 2em;
+}
+
+#hard-btn{
+    font-family: 'Ranga', cursive;
+    font-size: 2.5em;
+}
+
+button:active{
+    color: white;
+    border: 5px solid white;
+}
+
+#easy-btn:active{
+    background-color: green;
+}
+
+#normal-btn:active{
+    background-color: orangered;
+}
+
+#hard-btn:active{
+    background-color: black;
+}

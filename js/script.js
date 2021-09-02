@@ -11,46 +11,66 @@
  */
 
 
-let bombs = [];
-let playedNumbers = [];
+// let bombs = [];
+// let playedNumbers = [];
 
-function randomNumber (min, max) {
-    return Math.floor(Math.random() * (min - max + 1) + max);
-    }
+// let maxLimit;
+// let bombNum;
+// let maxNumPossibilities = (maxLimit - bombNum)
 
-// Creating 16 random numbers.
-while(bombs.length < 16){
+// function randomNumber (min, max) {
+//     return Math.floor(Math.random() * (min - max + 1) + max);
+//     }
 
-    let singleBomb = randomNumber (1, 100); 
+// // Creating 16 random numbers.
+// while(bombs.length < bombNum){
+
+//     let singleBomb = randomNumber (1, maxLimit); 
     
-    if (!bombs.includes(singleBomb) ){
-    bombs.push (singleBomb);
-    }
-    // console.log(bombs);
-}
+//     if (!bombs.includes(singleBomb) ){
+//     bombs.push (singleBomb);
+//     }
+//     // console.log(bombs);
+// }
 
-// Asking the user n times the numbers he wants to play. 
-while(playedNumbers.length < (100 - 15)) {
+// //Asking the user what level of difficulty he wants to play.
+// switch (chosenLevel){
+//     case "easy":
+//         bombNum = 16;
+//         maxLimit = 100;
+//         break;
+//     case "normal":
+//         bombNum = 32;
+//         maxLimit = 100;
+//         break;
+//     case "hard":
+//         bombNum = 40;
+//         maxLimit = 100;
+//         break;
+// }
 
-    let userNumber = parseInt( prompt("Insert a number from 1 to 100.") );
+// // Asking the user n times the numbers he wants to play. 
+// while(playedNumbers.length < maxNumPossibilities) {
 
-    if (playedNumbers.length == (100 - 16) ) {
-        alert ("You won! Press cmd + r to restart the game.");
-        break;
-    } else if (playedNumbers.includes(userNumber) ){
-        userNumber = parseInt( prompt("Too easy this way... Please insert a different number each time.") );
-    } else if (isNaN(userNumber)){
-        userNumber = parseInt( prompt("You can ONLY insert numbers!") );
-    } else if (!userNumber > 0 && !userNumber < 100){
-        userNumber = parseInt( prompt("You can ONLY insert a number from 1 to 100!") );
-    }  else if ( (!bombs.includes(userNumber) ) && 
-                (!playedNumbers.includes(userNumber) ) && 
-                (!isNaN(userNumber) ) && 
-                (userNumber > 0 && userNumber < 100)){
-        playedNumbers.push (userNumber);
-    } else if (bombs.includes(userNumber)){
-        alert ("You lost! Press cmd + r to restart the game.");
-        break;
-    }
-    console.log(playedNumbers);
-}
+//     let userNumber = parseInt( prompt("Insert a number from 1 to 100.") );
+
+//     if (playedNumbers.length == maxNumPossibilities ) {
+//         alert ("YOU WON! Press cmd + r to restart the game.");
+//         break;
+//     } else if (playedNumbers.includes(userNumber) ){
+//         userNumber = parseInt( prompt("You have already played the number: " + userNumber + "\nPlease insert a different number each time.") );
+//     } else if (isNaN(userNumber)){
+//         userNumber = parseInt( prompt("You can ONLY insert numbers!") );
+//     } else if (!userNumber > 0 && !userNumber < 100){
+//         userNumber = parseInt( prompt("You can ONLY insert a number from 1 to 100!") );
+//     }  else if ( (!bombs.includes(userNumber) ) && 
+//                 (!playedNumbers.includes(userNumber) ) && 
+//                 (!isNaN(userNumber) ) &&  
+//                 (userNumber > 0 && userNumber < 100)){
+//         playedNumbers.push (userNumber);
+//     } else if (bombs.includes(userNumber)){
+//         alert ("YOU LOST! Your score is:" + playedNumbers.length + "\nPress cmd + r to restart the game.");
+//         break;
+//     }
+//     console.log(playedNumbers);
+// }
